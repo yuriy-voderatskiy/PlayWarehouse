@@ -1,0 +1,25 @@
+@(productForm: Form[Product])(implicit flash: Flash)
+
+@main("Create product") {
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 text-left">
+            @helper.form(action = routes.Products.save(), 'role -> "form") {
+            <div class="form-group has-feedback">
+                <label class="control-label" for="ean">EAN</label>
+                @helper.inputText(productForm("ean"), 'class -> "form-control", '_label -> "", '_showConstraints -> false)
+            </div>
+            <div class="form-group has-feedback">
+                <label class="control-label" for="name">Name</label>
+                @helper.inputText(productForm("name"), 'class -> "form-control", '_label -> "", '_showConstraints -> false)
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                @helper.inputText(productForm("description"), 'class -> "form-control", '_label -> "", '_showConstraints -> false)
+            </div>
+            <button type="submit" class="btn btn-block btn-success">
+                <i class="fa fa-fw fa-plus"></i>Save</button>
+            <a href="@routes.Products.list()" class="btn btn-block btn-danger"><i class="fa fa-fw fa-times"></i>Dismiss</a>
+        }
+        </div>
+    </div>
+}

@@ -1,0 +1,12 @@
+# --- !Ups
+
+CREATE TABLE product (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  ean BIGINT NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  description VARCHAR(255) NOT NULL
+);
+
+# --- !Downs
+
+DROP TABLE IF EXISTS bar;
