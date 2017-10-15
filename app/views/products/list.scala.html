@@ -1,4 +1,4 @@
-@(products: List[Product])(implicit flash: Flash)
+@(products: List[Product])(implicit flash: Flash, messagesProvider: MessagesProvider)
 
 
 @main("List of Products") {
@@ -13,7 +13,7 @@
                 @for(product <- products) {
                     <li class="media">
                         <div class="media-body">
-                            <h4 class="media-heading"><a href="@routes.Products.details(product.ean)">@product.name</a></h4>
+                            <h4 class="media-heading"><a href="@routes.ProductsController.details(product.ean)">@product.name</a></h4>
                             <p>@product.description</p>
                         </div>
                     </li>
@@ -23,7 +23,7 @@
     </div>
     <div class="row">
         <div class="col-md-2 col-md-offset-3">
-            <a class="btn btn-block btn-primary" href="@routes.Products.create()">New</a>
+            <a class="btn btn-block btn-primary" href="@routes.ProductsController.create()">New</a>
         </div>
     </div>
 }

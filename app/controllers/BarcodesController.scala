@@ -1,11 +1,11 @@
 package controllers
 
-import play.api.mvc.{Action, Controller}
+import javax.inject.{Inject, Singleton}
 
-/**
- * Created by Home on 15.03.2015.
- */
-object Barcodes extends Controller {
+import play.api.mvc._
+
+@Singleton
+class BarcodesController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
   val ImageResolution = 144
   def barcode(ean: Long) = Action {
     import java.lang.IllegalArgumentException
